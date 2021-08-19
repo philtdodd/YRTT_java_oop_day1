@@ -16,7 +16,7 @@ public class SecureBankAccount {
         addReward();
     }
 
-    public void getAccountBalance() {
+    public void displayAccountBalance() {
         System.out.println("Your account balance is " + accountBalance);
     }
 

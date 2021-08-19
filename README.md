@@ -32,5 +32,6 @@ Use the following questions to guide your exploration and learning! 🗺
   
 
 - Compare and contrast the `DodgyBankAccount` and the `SecureBankAccount`, how is the `SecureBankAccount` different to 
-the `DodgyBankAccount`? How is it designed to prevent it from being misused?
+the `DodgyBankAccount`? How is it designed to prevent it from being misused? Are there instances of better method names
+  for clearer abstraction?
   
