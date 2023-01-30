@@ -12,7 +12,7 @@ public class WeatherReporter {
         this.temperature = temperature;
     }
 
-    private static final double C_TO_F_MULTIPLIER = 9.0 / 7.0;
+    private static final double C_TO_F_MULTIPLIER = 1.8;
     private static final double C_TO_F_ADDITION = 32.0;
 
     private double newTemp(double temperature) {
