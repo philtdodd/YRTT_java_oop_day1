@@ -12,40 +12,40 @@ public class WeatherReporter {
         this.temperature = temperature;
     }
 
+    private static final double C_TO_F_MULTIPLIER = 9.0 / 7.0;
+    private static final double C_TO_F_ADDITION = 32.0;
+
+    private double newTemp(double temperature) {
+        return(C_TO_F_MULTIPLIER * temperature + C_TO_F_ADDITION);
+    }
+
     public String print() {
-
-        double newTemp = (9.0 / 5.0) * temperature + 32;
-        return MessageFormat.format("I am in {0} and it is {1}. {2}. The temperature in Fahrenheit is {3}.", location, check1(), check2(), newTemp);
-
+        return MessageFormat.format("I am in {0} and it is {1}. {2}. The temperature in Fahrenheit is {3}.",
+                location,
+                checkLocationWeatherSymbol(),
+                checkTemperature(),
+                newTemp(temperature));
     }
 
-    public String check1() {
-        if (location == "London") {
-
-            return "🌦";
-
-        } else if (location == "California") {
-
-            return "🌅";
-
-        } else if (location == "Cape Town") {
-
-            return "🌤";
-
-        }
-        return "🔆";
+    private String checkLocationWeatherSymbol() {
+        return switch (location) {
+            case "London" -> "🌦";
+            case "California" -> "🌅";
+            case "Cape Town" -> "🌤";
+            default -> "🔆";
+        };
     }
 
-    public String check2() {
-        if (temperature > 30) {
+    private static final double tooHot = 30;
+    private static final double tooCold = 10;
 
+    private String checkTemperature() {
+        if (temperature > tooHot) {
             return "It's too hot 🥵!";
-
-        } else if (temperature < 10) {
-
+        } else if (temperature < tooCold) {
             return "It's too cold 🥶!";
-
         }
+
         return "Ahhh...it's just right 😊!";
     }
 
